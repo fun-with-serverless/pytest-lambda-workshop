@@ -38,7 +38,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-region: us-east-1
-        role-to-assume: arn:aws:iam::234138278568:role/GitHub-Access
+        role-to-assume: arn:aws:iam::201893381538:role/GitHubRole
         role-session-name: GitHubActionsSession
     - name: Upload to S3
       run: |
