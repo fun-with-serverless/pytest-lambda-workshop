@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "testing-lambdas-workshop"
+version = "0.1.0"
+description = "Testing your Lambdas using Unit Testing and AWS SAM Local"
+authors = ["Efi MK <efi.merdler@gmail.com>"]
+license = "Apache"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mkdocs = "^1.4.3"
+mkdocs-material = "^9.1.17"
+pillow = "^9.5.0"
+cairosvg = "^2.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

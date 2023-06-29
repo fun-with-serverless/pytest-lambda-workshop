@@ -1,0 +1,52 @@
+site_name: Testing your Lambdas using Moto and AWS SAM Local
+repo_url: https://github.com/example/repository/
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - header.autohide
+  icon:
+    logo: material/test-tube
+    favicon: images/test-tube.svg
+    repo: fontawesome/brands/github
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - social
+
+nav:
+  - Introduction: 'index.md'
+  - Part 1: 
+    - Unit Testing and the "Crisis at the Concert": './part1/part1.md'
+    - What to test: './part1/what-to-test.md'
+    - Application Code Overview: './part1/app-description.md'
+    - Using pytest: './part1/using-pytest.md'
+  - Part 2: 
+    - Hello Moto: './part2/part2.md'
+    - Writing tests with Moto: './part2/moto-example.md'
+    

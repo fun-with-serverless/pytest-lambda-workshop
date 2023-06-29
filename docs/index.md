@@ -1,3 +1,5 @@
+# Welcome to the "Crisis at the Concert" Lambda Testing Workshop
+
 Welcome to the "Crisis at the Concert" workshop! This event is designed to provide hands-on experience with unit testing, mocking AWS services, and local testing of AWS Serverless Application Model (SAM) applications.
 
 The workshop is based on a fun and engaging scenario, "Crisis at the Concert", where you will play the role of an engineer tasked with fixing a malfunctioning concert event management system just before the big event.
@@ -6,14 +8,14 @@ The concert management system is a Serverless Application Model (SAM) applicatio
 
 Your goal is to "save the concert" by identifying and fixing these issues using a range of testing and debugging tools.
 
-# Workshop Curriculum
+## Workshop Curriculum
 The workshop is divided into three main parts:
 
 1. Unit Testing for AWS Lambda (1 hour):
 In this section, you will learn about unit testing, its importance, and how to apply it to AWS Lambda functions. You will write your own unit tests to identify issues in the concert application.
 
 2. Mocking AWS Services with Moto (1 hour):
-Here, you'll learn about the Python library Moto and how it can be used to mock AWS services for testing purposes. You will write Lambda functions to fix the issues identified in the concert application and then use Moto to mock the AWS services used by these functions.
+Here, you'll learn about the Python library Moto and how it can be used to mock AWS services for testing purposes.
 
 3. Local Testing with AWS SAM (30 minutes):
 In the final part of the workshop, you'll learn about AWS SAM and how it can be used for local testing of AWS services like API Gateway, Lambda, and DynamoDB. You will run the concert application locally, interact with the locally running application, inspect logs, and debug issues.
@@ -22,9 +24,12 @@ By the end of this workshop, you should have a solid understanding of how to wri
 
 Let's dive in and save the concert!
 
-**[The workshop is available online](http://pytest-lambda-workshop.s3-website-us-west-2.amazonaws.com/)**
+## Prerequisites
+Before you start, make sure you have the following:
 
-# How to run locally
-1. Make sure you have `poetry` installed.
-2. Run `poetry install`.
-3. Run `poetry run mkdocs serve` to have the workshop running locally.
+* Basic knowledge of AWS, including AWS Lambda and DynamoDB.
+* Familiarity with Python programming language.
+* AWS account with appropriate permissions to create and manage AWS Lambda functions and DynamoDB tables.
+* Python, AWS CLI, and AWS SAM CLI installed on your local machine.
+
+We're excited for you to join us in this hands-on workshop. Let's get started!
