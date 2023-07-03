@@ -23,5 +23,5 @@ def handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': json.dumps({'message': f'Total number of tickets booked: {total_tickets}.'})
+        'body': json.dumps({'message': f'Total tickets booked: {total_tickets}.'})
     }

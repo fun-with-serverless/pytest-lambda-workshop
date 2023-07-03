@@ -1,6 +1,8 @@
 import json
 import boto3
 import os
+import random
+import string
 
 def handler(event, context):
     
@@ -26,6 +28,7 @@ def handler(event, context):
         table = dynamodb.Table(os.getenv('TABLE_NAME'))
         table.put_item(
             Item={
+                'id': _generate_random_string(5),
                 'name': name,
                 'ticket_count': ticket_count
             }
@@ -40,3 +43,8 @@ def handler(event, context):
         'statusCode': 200,
         'body': json.dumps({'message': f'Successfully booked {ticket_count} tickets for {name}.'})
     }
+
+def _generate_random_string(length):
+    letters = string.ascii_letters
+    result_str = ''.join(random.choice(letters) for _ in range(length))
+    return result_str
