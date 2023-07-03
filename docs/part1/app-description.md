@@ -1,6 +1,8 @@
 # App Description
 This SAM application consists of a simple ticket booking system, "Crisis at the Concert". The application is designed to allow users to book tickets for a concert. Let's break it down:
 
+## High Level Design
+
 ## SAM Template
 The SAM template, defined in YAML format, describes the AWS resources that make up the application.
 ```yaml linenums="1"
@@ -13,7 +15,7 @@ Resources:
     Type: AWS::Serverless::Function 
     Properties:
       Handler: ticket_booking.handler
-      Runtime: python3.9
+      Runtime: python3.10
       Environment:
         Variables:
           TABLE_NAME: !Ref TicketsTable
@@ -28,7 +30,7 @@ Resources:
     Type: AWS::Serverless::Function 
     Properties:
       Handler: sum_tickets.handler
-      Runtime: python3.9
+      Runtime: python3.10
       Environment:
         Variables:
           TABLE_NAME: !Ref TicketsTable
@@ -45,7 +47,7 @@ Resources:
 
 The Resources section of the template describes three resources:
 
-1. **BookTicketFunction**: This is a Lambda function that handles the ticket booking logic. It's written in Python 3.9, and the function handler is ticket_booking.handler. The function is triggered by an API Gateway event (BookTicketApi) when a POST request is made to the /book_ticket path. The environment variable TABLE_NAME is set to the logical ID of the DynamoDB table resource (TicketsTable), which will be replaced by the actual table name at runtime.
+1. **BookTicketFunction**: This is a Lambda function that handles the ticket booking logic. It's written in Python, and the function handler is ticket_booking.handler. The function is triggered by an API Gateway event (BookTicketApi) when a POST request is made to the /book_ticket path. The environment variable TABLE_NAME is set to the logical ID of the DynamoDB table resource (TicketsTable), which will be replaced by the actual table name at runtime.
 
 2. **SumTicketsFunction**: This is a Lambda function that summarizes the number of booked tickets.
 
