@@ -44,7 +44,7 @@ Resources:
 Outputs:
   URL:
     Description: "API Gateway Address"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/<replace>/""
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/<replace>/"
   BookTicketFunctionApi:
     Description: "Here's an example of how to book a ticket using curl"
     Value: !Join
