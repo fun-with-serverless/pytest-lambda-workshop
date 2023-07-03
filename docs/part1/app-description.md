@@ -2,7 +2,7 @@
 This SAM application consists of a simple ticket booking system, "Crisis at the Concert". The application is designed to allow users to book tickets for a concert. Let's break it down:
 
 ## High Level Design
-![High level design](./images/workshop-pytest.png)
+![High level design](../images/workshop-pytest.png)
 
 ## SAM Template
 The SAM template, defined in YAML format, describes the AWS resources that make up the application.
