@@ -42,8 +42,11 @@ Resources:
     Type: AWS::Serverless::SimpleTable
 
 Outputs:
+  URL:
+    Description: "API Gateway Address"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/<replace>/"
   BookTicketFunctionApi:
-    Description: "A curl example for booking a ticket"
+    Description: "Here's an example of how to book a ticket using curl"
     Value: !Join
     - ''
     - - 'curl -X POST https://'
@@ -53,5 +56,5 @@ Outputs:
       - '.amazonaws.com/Prod/book_ticket/ -H "Content-Type: application/json" -d ''{"name": "Noa Kiril","ticket_count": "50"}'''
 
   SumTicketFunctionApi:
-    Description: "A curl example for summing the tickets number"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/sum_tickets/"
+    Description: "Here's an example of how to calculate the total number of tickets using curl"
+    Value: !Sub "curl https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/sum_tickets/"
