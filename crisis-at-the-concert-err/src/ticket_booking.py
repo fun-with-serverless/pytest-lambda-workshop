@@ -3,8 +3,7 @@ import boto3
 import os
 
 def handler(event, context):
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table(os.getenv('TABLE_NAME'))
+    
 
     body = json.loads(event['body'])
     if 'namer' not in body or 'ticket_count' not in body:
@@ -23,6 +22,8 @@ def handler(event, context):
         }
 
     try:
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table(os.getenv('TABLE_NAME'))
         table.put_item(
             Item={
                 'name': name,
