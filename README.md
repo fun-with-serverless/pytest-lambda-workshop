@@ -9,13 +9,13 @@ Your goal is to "save the concert" by identifying and fixing these issues using 
 # Workshop Curriculum
 The workshop is divided into three main parts:
 
-1. Unit Testing for AWS Lambda (1 hour):
+1. Unit Testing for AWS Lambda:
 In this section, you will learn about unit testing, its importance, and how to apply it to AWS Lambda functions. You will write your own unit tests to identify issues in the concert application.
 
-2. Mocking AWS Services with Moto (1 hour):
-Here, you'll learn about the Python library Moto and how it can be used to mock AWS services for testing purposes. You will write Lambda functions to fix the issues identified in the concert application and then use Moto to mock the AWS services used by these functions.
+2. Mocking AWS Services with Moto:
+Here, you'll learn about the Python library Moto and how it can be used to mock AWS services for testing purposes. You will update the Lambda functions to fix the issues identified in the concert application and then use Moto to mock the AWS services used by these functions.
 
-3. Local Testing with AWS SAM (30 minutes):
+3. Local Testing with AWS SAM:
 In the final part of the workshop, you'll learn about AWS SAM and how it can be used for local testing of AWS services like API Gateway, Lambda, and DynamoDB. You will run the concert application locally, interact with the locally running application, inspect logs, and debug issues.
 
 By the end of this workshop, you should have a solid understanding of how to write unit tests for AWS Lambda functions, mock AWS services using Moto, and conduct local testing with AWS SAM. You'll also have the experience of applying these techniques to a practical scenario, giving you confidence to apply them in your own projects.

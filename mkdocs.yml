@@ -44,10 +44,13 @@ nav:
   - Introduction: 'index.md'
   - Part 1: 
     - Unit Testing and the "Crisis at the Concert": './part1/part1.md'
-    - What to test: './part1/what-to-test.md'
     - Application Code Overview: './part1/app-description.md'
     - Using pytest: './part1/using-pytest.md'
   - Part 2: 
     - Hello Moto: './part2/part2.md'
     - Writing tests with Moto: './part2/moto-example.md'
+  - Part 3: 
+    - Using Sam Local: './part3/part3.md'
+    - Testing in a real environment: './part3/deploy-to-aws.md'
+  - Cleanup: 'cleanup.md'
     

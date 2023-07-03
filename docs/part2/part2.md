@@ -25,15 +25,15 @@ import pytest
 def test_s3_bucket_creation():
     with moto.mock_s3():
         # Given
-        s3 = boto3.client('s3', region_name='us-west-2')
-        bucket_name = 'my-test-bucket'
+        s3 = boto3.client("s3", region_name="us-east-1")
+        bucket_name = "my-bucket"
 
         # When
         s3.create_bucket(Bucket=bucket_name)
 
         # Then
         response = s3.list_buckets()
-        bucket_names = [bucket['Name'] for bucket in response['Buckets']]
+        bucket_names = [bucket["Name"] for bucket in response["Buckets"]]
         assert bucket_name in bucket_names
 ```
 In this example, we're using `moto` to mock the S3 service. The `s3.create_bucket()` call doesn't actually create a bucket in live AWS S3, but in the mocked S3 service that `moto` provides. Then, when we call `s3.list_buckets()`, it returns the bucket we just created.
@@ -53,7 +53,7 @@ import moto
 
 def test_s3_bucket_creation():
     with moto.mock_s3():
-        s3 = boto3.client('s3', region_name='us-west-2')
+        s3 = boto3.client('s3', region_name='us-east-1')
         bucket_name = 'my-test-bucket'
         s3.create_bucket(Bucket=bucket_name)
 
@@ -70,7 +70,7 @@ import moto
 
 @moto.mock_s3
 def test_s3_bucket_creation():
-    s3 = boto3.client('s3', region_name='us-west-2')
+    s3 = boto3.client('s3', region_name='us-east-1')
     bucket_name = 'my-test-bucket'
     s3.create_bucket(Bucket=bucket_name)
 

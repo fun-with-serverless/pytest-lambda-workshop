@@ -18,10 +18,10 @@ Your mission, should you choose to accept it, is to save the concert. To do this
 In the following sections, you will explore the concert application, write unit tests to identify issues, and use these tests to guide your debugging and problem-solving efforts. Good luck!
 
 ## Deploying and Testing the "Crisis at the Concert" Application
-In this part of the workshop, we will deploy our SAM application and test it by calling its API.
+In this segment of the workshop, we will deploy our SAM application and validate its functionality by invoking its API. The application is split across two directories: `crisis-at-the-concert-err` and `crisis-at-the-concert-fixed`. The `err`-suffixed directory hosts the application that requires your attention and problem-solving skills, while the `fixed` directory contains the final solution, complete with all the implemented tests.
 
 ### Step 1: Deploy the SAM Application
-First, let's deploy our SAM application. Open your terminal and navigate to the root directory of the "Crisis at the Concert" project.
+First, let's deploy our SAM application. Open your terminal and navigate to the root directory of the workshop project. From there, proceed to the `crisis-at-the-concert-err` directory.
 
 Ensure that you have AWS credentials set up on your local machine. If you haven't done this yet, you can follow this [guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) to set them up.
 
@@ -32,34 +32,34 @@ sam build
 
 Once the build is successful, deploy the application:
 ```
-sam deploy --guided
+sam deploy
 ```
-During the guided deployment, you'll be prompted to enter some configuration parameters (e.g., stack name, AWS Region). Once you've entered these details, the deployment will begin. After a few minutes, your application should be deployed, and you'll see output similar to this:
+After a few minutes, your application should be deployed, and you'll see output similar to this:
 
 ```
 CloudFormation outputs from deployed stack
 -----------------------------------------------------
 Outputs
 -----------------------------------------------------
-Key                 ConcertApiURL
-Description         API Gateway endpoint URL for Prod stage for Concert function
-Value               https://xxxxxx.execute-api.us-west-2.amazonaws.com/Prod/concert/
+Key                 BookTicketFunctionApi
+Description         A curl example for booking a ticket
+Value               curl -X POST https://xxxx.execute-api.us-east-1.amazonaws.com/Prod/book_ticket/ -H "Content-Type: application/json" -d '{"name": "Noa Kiril","ticket_count": "50"}' 
 -----------------------------------------------------
 ```
 
-Keep note of the `Value` under `ConcertApiURL`, as this is the endpoint we'll use to test our application.
+Keep note of the `Value` under `BookTicketFunctionApi`, as this is the endpoint we'll use to test our application.
 
 ### Step 2: Test the Application
 Now that we've deployed our application, it's time to test it.
 
-Using a tool like Postman, Insomnia, or even curl in your terminal, make a GET request to the `ConcertApiURL` endpoint.
-
+Using a tool like Postman, Insomnia, or even curl in your terminal, make a GET request to the `BookTicketFunctionApi` endpoint.
+You can use the example supplied as part of the value.
 Here's an example using curl:
 ```bash
-curl https://xxxxxx.execute-api.us-west-2.amazonaws.com/Prod/concert/
+curl -X POST https://xxxx.execute-api.us-east-1.amazonaws.com/Prod/book_ticket/ -H "Content-Type: application/json" -d '{"name": "Noa Kiril","ticket_count": "50"}'
 ```
 
-Replace `https://xxxxxx.execute-api.us-west-2.amazonaws.com/Prod/concert/` with your actual `ConcertApiURL`.
+Replace `https://xxxxxx.execute-api.us-west-2.amazonaws.com/Prod/book_ticket/` with your actual URL.
 
 You should receive a JSON response from the server. If there's a problem with the application, the response should help you identify what's wrong.
 

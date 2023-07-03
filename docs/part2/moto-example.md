@@ -9,21 +9,21 @@ import boto3
 import os
 import moto
 import json
-from your_lambda_file import handler  # replace this with your actual import
+from src.ticket_sum import handler
 
 def test_sum_tickets_with_data():
-    with moto.mock_dynamodb2():
-        dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
+    with moto.mock_dynamodb():
+        dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
         table_name = 'test-table'
         os.environ['TABLE_NAME'] = table_name
         table = dynamodb.create_table(
             TableName=table_name,
-            KeySchema=[{'AttributeName': 'name', 'KeyType': 'HASH'}],
-            AttributeDefinitions=[{'AttributeName': 'name', 'AttributeType': 'S'}],
+            KeySchema=[{'AttributeName': 'id', 'KeyType': 'HASH'}],
+            AttributeDefinitions=[{'AttributeName': 'id', 'AttributeType': 'S'}],
             ProvisionedThroughput={'ReadCapacityUnits': 1, 'WriteCapacityUnits': 1}
         )
 
-        items = [{'name': 'name'+str(i), 'ticket_count': str(i)} for i in range(5)]
+        items = [{'id':str(i), 'name': 'name'+str(i), 'ticket_count': str(i)} for i in range(5)]
         with table.batch_writer() as batch:
             for item in items:
                 batch.put_item(Item=item)
@@ -63,14 +63,14 @@ from your_lambda_file import handler  # replace this with your actual import
 
 @pytest.fixture
 def setup_dynamodb():
-    with moto.mock_dynamodb2():
-        dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
+    with moto.mock_dynamodb():
+        dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
         table_name = 'test-table'
         os.environ['TABLE_NAME'] = table_name
         table = dynamodb.create_table(
             TableName=table_name,
-            KeySchema=[{'AttributeName': 'name', 'KeyType': 'HASH'}],
-            AttributeDefinitions=[{'AttributeName': 'name', 'AttributeType': 'S'}],
+            KeySchema=[{'AttributeName': 'id', 'KeyType': 'HASH'}],
+            AttributeDefinitions=[{'AttributeName': 'id', 'AttributeType': 'S'}],
             ProvisionedThroughput={'ReadCapacityUnits': 1, 'WriteCapacityUnits': 1}
         )
         yield # This is where pytest pauses the fixture and runs the test
@@ -101,3 +101,6 @@ Next, invoke the `SumTicketsFunction` Lambda to calculate the total number of ti
 Compare the result from `SumTicketsFunction` with the number of tickets you initially booked. They should match.
 
 **Remember to use the setup_dynamodb fixture to create the DynamoDB table.**
+
+## Deployment
+After creating the tests and fixing the relevant code tibits it's time to run the service locally `sam build && sam deploy` and test it using sam local.

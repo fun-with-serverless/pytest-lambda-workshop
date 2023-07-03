@@ -21,25 +21,22 @@ In this structure, the src directory contains your source code (`lambda_function
 ## Writing Tests
 A pytest test case is a function that begins with `test_`, and resides in a Python file beginning with `test_`. Here is an example of a test for the BookTicketFunction lambda:
 ```python linenums="1"
-# test_lambda_function.py
-
 import json
-import pytest
-from src.lambda_function import handler
-from botocore.exceptions import BotoCoreError
+from src.ticket_booking import handler
+import json
+from src.ticket_booking import handler
 
-def test_handler_valid_input_return_success():
+def test_handler_missing_name_return_400():
     event = {
         'body': json.dumps({
-            'name': 'John Doe',
             'ticket_count': '2'
         })
     }
 
     response = handler(event, {})
 
-    assert response['statusCode'] == 200
-    assert 'Successfully booked' in response['body']
+    assert response['statusCode'] == 400
+    assert json.dumps({'message': 'Invalid request, name and ticket_count are required.'}) == response['body']
 ```
 
 This test checks that the handler function returns a successful response when given valid input.
@@ -56,7 +53,7 @@ Try running your test, it should fail, do you know why? Fix the code and rerun t
 ## Exercise
 Now, try writing two additional unit tests for the `BookTicketFunction` lambda:
 
-1. **Test for failure when name or ticket_count are missing**: Create a test that sends an event without a name or ticket_count and checks that the handler function returns a response with a status code of 400.
+1. **Test for failure when ticket_count are missing**: Create a test that sends an event without a ticket_count and checks that the handler function returns a response with a status code of 400.
 
 2. **Test for failure when ticket_count is not a string**: Create a test that sends an event where ticket_count is not a string (for example, it could be a number) and checks that the handler function returns a response with a status code of 400.
 

@@ -1,0 +1,69 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Crisis at the Concert Ticket Booking System
+
+Globals:
+  Function:
+    Timeout: 3
+    MemorySize: 128
+    Runtime: python3.10
+    CodeUri: src/
+
+Resources:
+  BookTicketFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      Handler: ticket_booking.handler
+      Policies:
+      - DynamoDBWritePolicy:
+          TableName: !Ref TicketsTable
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref TicketsTable
+      Events:
+        BookTicketApi:
+          Type: Api 
+          Properties:
+            Path: /book_ticket
+            Method: post
+
+  SumTicketsFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      Handler: ticket_sum.handler
+      Policies:
+      - DynamoDBReadPolicy:
+          TableName: !Ref TicketsTable
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref TicketsTable
+      Events:
+        SumTicketApi:
+          Type: Api 
+          Properties:
+            Path: /sum_tickets
+            Method: get
+
+  TicketsTable:
+    Type: AWS::Serverless::SimpleTable
+
+Outputs:
+  TableName:
+    Description: Name of the table that holds the booking
+    Value: !Ref TicketsTable
+  URL:
+    Description: "API Gateway Address"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/<replace>/"
+  BookTicketFunctionApi:
+    Description: "Here's an example of how to book a ticket using curl"
+    Value: !Join
+    - ''
+    - - 'curl -X POST https://'
+      - !Ref ServerlessRestApi
+      - '.execute-api.'
+      - !Ref 'AWS::Region'
+      - '.amazonaws.com/Prod/book_ticket/ -H "Content-Type: application/json" -d ''{"name": "Noa Kiril","ticket_count": "50"}'''
+
+  SumTicketFunctionApi:
+    Description: "Here's an example of how to calculate the total number of tickets using curl"
+    Value: !Sub "curl https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/sum_tickets/"
