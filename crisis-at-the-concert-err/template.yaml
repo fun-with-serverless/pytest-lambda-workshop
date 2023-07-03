@@ -42,6 +42,9 @@ Resources:
     Type: AWS::Serverless::SimpleTable
 
 Outputs:
+  TableName:
+    Description: Name of the table that holds the booking
+    Value: !Ref TicketsTable
   URL:
     Description: "API Gateway Address"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/<replace>/"

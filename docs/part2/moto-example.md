@@ -101,3 +101,6 @@ Next, invoke the `SumTicketsFunction` Lambda to calculate the total number of ti
 Compare the result from `SumTicketsFunction` with the number of tickets you initially booked. They should match.
 
 **Remember to use the setup_dynamodb fixture to create the DynamoDB table.**
+
+## Deployment
+After creating the tests and fixing the relevant code tibits it's time to run the service locally `sam build && sam deploy` and test it using sam local.

@@ -34,6 +34,7 @@ def handler(event, context):
             }
         )
     except Exception as e:
+        print(e)
         return {
             'statusCode': 500,
             'body': json.dumps({'message': 'Internal server error.'})

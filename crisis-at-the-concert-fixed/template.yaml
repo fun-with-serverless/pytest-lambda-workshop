@@ -14,6 +14,9 @@ Resources:
     Type: AWS::Serverless::Function 
     Properties:
       Handler: ticket_booking.handler
+      Policies:
+      - DynamoDBWritePolicy:
+          TableName: !Ref TicketsTable
       Environment:
         Variables:
           TABLE_NAME: !Ref TicketsTable
@@ -28,6 +31,9 @@ Resources:
     Type: AWS::Serverless::Function 
     Properties:
       Handler: ticket_sum.handler
+      Policies:
+      - DynamoDBReadPolicy:
+          TableName: !Ref TicketsTable
       Environment:
         Variables:
           TABLE_NAME: !Ref TicketsTable
@@ -42,6 +48,9 @@ Resources:
     Type: AWS::Serverless::SimpleTable
 
 Outputs:
+  TableName:
+    Description: Name of the table that holds the booking
+    Value: !Ref TicketsTable
   URL:
     Description: "API Gateway Address"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/<replace>/"
