@@ -1,0 +1,57 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Crisis at the Concert Ticket Booking System
+
+Globals:
+  Function:
+    Timeout: 3
+    MemorySize: 128
+    Runtime: python3.10
+    CodeUri: src/
+
+Resources:
+  BookTicketFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      Handler: ticket_booking.handler
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref TicketsTable
+      Events:
+        BookTicketApi:
+          Type: Api 
+          Properties:
+            Path: /book_ticket
+            Method: post
+
+  SumTicketsFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      Handler: ticket_sum.handler
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref TicketsTable
+      Events:
+        SumTicketApi:
+          Type: Api 
+          Properties:
+            Path: /sum_tickets
+            Method: get
+
+  TicketsTable:
+    Type: AWS::Serverless::SimpleTable
+
+Outputs:
+  BookTicketFunctionApi:
+    Description: "A curl example for booking a ticket"
+    Value: !Join
+    - ''
+    - - 'curl -X POST https://'
+      - !Ref ServerlessRestApi
+      - '.execute-api.'
+      - !Ref 'AWS::Region'
+      - '.amazonaws.com/Prod/book_ticket/ -H "Content-Type: application/json" -d ''{"name": "Noa Kiril","ticket_count": "50"}'''
+
+  SumTicketFunctionApi:
+    Description: "A curl example for summing the tickets number"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/sum_tickets/"
