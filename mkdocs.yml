@@ -50,7 +50,7 @@ nav:
     - Hello Moto: './part2/part2.md'
     - Writing tests with Moto: './part2/moto-example.md'
   - Part 3: 
-    - Hello Moto: './part2/part2.md'
-    - Writing tests with Moto: './part2/moto-example.md'
+    - Using Sam Local: './part3/part3.md'
+    - Testing in a real environment: './part3/deploy-to-aws.md'
   - Cleanup: 'cleanup.md'
     
