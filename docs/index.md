@@ -1,5 +1,7 @@
 # Welcome to the "Crisis at the Concert" Lambda Testing Workshop
 
+![Crisis at the Concert A painting by Picasso](./images/logo-crisis-at-the-opera.png){ align=left }
+
 Welcome to the "Crisis at the Concert" workshop! This event is designed to provide hands-on experience with unit testing, mocking AWS services, and local testing of AWS Serverless Application Model (SAM) applications.
 
 The workshop is based on a fun and engaging scenario, "Crisis at the Concert", where you will play the role of an engineer tasked with fixing a malfunctioning concert event management system just before the big event.
@@ -27,9 +29,14 @@ Let's dive in and save the concert!
 ## Prerequisites
 Before you start, make sure you have the following:
 
-* Basic knowledge of AWS, including AWS Lambda and DynamoDB.
+* Basic knowledge of AWS, including AWS Lambda, DynamoDB and AWS SAM.
 * Familiarity with Python programming language.
-* AWS account with appropriate permissions to create and manage AWS Lambda functions and DynamoDB tables.
-* Python, AWS CLI, and AWS SAM CLI installed on your local machine.
+* AWS account with appropriate permissions to create and manage AWS Lambda functions, DynamoDB tables and CF stack creation.
+* Python 3.9, AWS CLI, and AWS SAM CLI installed on your local machine.
+* Clone `https://github.com/aws-hebrew-book/pytest-lambda-workshop` to your development machine.
+
+!!! note
+
+    We highly recommend using [Cloud9](https://aws.amazon.com/cloud9/) as your temporary development environment. It already comes equipped with the necessary prerequisites; however, you will need to update your Python version to 3.9. After cloning the GitHub repository, run `./update_python_on_cloud9.sh` to install Python 3.9.
 
 We're excited for you to join us in this hands-on workshop. Let's get started!

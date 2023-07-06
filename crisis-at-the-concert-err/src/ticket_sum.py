@@ -1,10 +1,11 @@
 import json
 import boto3
 import os
+from .consts import REGION
 
 def handler(event, context):
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table(os.getenv('TABLE_NAME'))
+    table = dynamodb.Table(os.getenv('TABLE_NAME'), region_name=REGION)
 
     try:
         response = table.scan(

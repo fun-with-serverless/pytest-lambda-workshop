@@ -13,12 +13,15 @@ sam local start-api
 Please note that AWS SAM Local must be run in the same directory as your SAM template.
 ## Defining Environment Variables
 Environment variables can be defined in a JSON file and passed to the `sam local start-api` command using the `--env-vars` option. The JSON file should be structured as follows:
+```
 {
-  "MyFunction": {
-    "TABLE_NAME": "my-table",
-    "BUCKET_NAME": "my-bucket"
+  "BookTicketFunction": {
+    "TABLE_NAME": "my-table"
   }
 }
+```
+!!! note
+    Please note that each function has a separate record in the JSON.
 
 You can then pass this file to the sam local start-api command like so:
 ```

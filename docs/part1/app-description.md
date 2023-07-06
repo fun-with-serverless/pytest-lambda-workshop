@@ -57,20 +57,7 @@ The Resources section of the template describes three resources:
 ## Book Function Code
 The Lambda function, ticket_booking.handler, is written in Python. It receives an event object from API Gateway, which contains details of the HTTP request.
 
-```py linenums="1"
-import json
-import boto3
-import os
-
-def handler(event, context):
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table(os.getenv('TABLE_NAME'))
-
-    # ... rest of the code
-```
-The function begins by establishing a connection to DynamoDB and references the table specified by the `TABLE_NAME` environment variable.
-
-The function then parses the body of the HTTP request, expecting to find 'name' and 'ticket_count' fields. If these fields are not present, it returns a 400 status code indicating a bad request.
+The function begins by parsing the body of the HTTP request, expecting to find 'name' and 'ticket_count' fields. If these fields are not present, it returns a 400 status code indicating a bad request.
 ```py linenums="1"
     body = json.loads(event['body'])
     if 'namer' not in body or 'ticket_count' not in body:
@@ -88,11 +75,19 @@ The function also checks that the 'ticket_count' field is a string, returning a 
             'body': json.dumps({'message': 'Invalid request, ticket_count should be a number.'})
         }
 ```
+
+```py linenums="1"
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table(os.getenv('TABLE_NAME'))
+```
+The function establishes a connection to DynamoDB and references the table specified by the `TABLE_NAME` environment variable.
+
 If the request is valid, the function attempts to store the booking information in the DynamoDB table. If this operation fails for any reason, it returns a 500 status code indicating an internal server error.
 ```py linenums="1"
     try:
         table.put_item(
             Item={
+                'id': _generate_random_string(5),
                 'name': name,
                 'ticket_count': ticket_count
             }

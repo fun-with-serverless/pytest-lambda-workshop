@@ -23,6 +23,10 @@ In this segment of the workshop, we will deploy our SAM application and validate
 ### Step 1: Deploy the SAM Application
 First, let's deploy our SAM application. Open your terminal and navigate to the root directory of the workshop project. From there, proceed to the `crisis-at-the-concert-err` directory.
 
+!!! note
+
+    This workshop assumes that you are working in the `us-east-1` region. If you are working in a different region, please update the `REGION` value in `consts.py`. Additionally, modify the SAM deployment command to include the appropriate region, e.g., sam `deploy --region ....`
+
 Ensure that you have AWS credentials set up on your local machine. If you haven't done this yet, you can follow this [guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) to set them up.
 
 Now, let's build our SAM application:
@@ -34,6 +38,11 @@ Once the build is successful, deploy the application:
 ```
 sam deploy
 ```
+
+!!! note
+
+    If you are using a shared AWS environment, it is recommended that you change the default stack name to avoid conflicts with others participating in the same workshop. Simply use `sam build --stack-name crisis-at-the-concert-${USER}`.
+
 After a few minutes, your application should be deployed, and you'll see output similar to this:
 
 ```
@@ -61,6 +70,6 @@ curl -X POST https://xxxx.execute-api.us-east-1.amazonaws.com/Prod/book_ticket/ 
 
 Replace `https://xxxxxx.execute-api.us-west-2.amazonaws.com/Prod/book_ticket/` with your actual URL.
 
-You should receive a JSON response from the server. If there's a problem with the application, the response should help you identify what's wrong.
+You should receive a JSON response from the server indicating an error.
 
 Remember, our application is intentionally "broken" as part of the "Crisis at the Concert" scenario. Any errors or unexpected responses are opportunities for you to practice debugging and problem-solving!

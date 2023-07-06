@@ -1,10 +1,12 @@
 import json
+
+from .consts import REGION
 import boto3
 import os
 
 
 def handler(event, context):
-    dynamodb = boto3.resource("dynamodb")
+    dynamodb = boto3.resource("dynamodb", region_name=REGION)
     table = dynamodb.Table(os.getenv("TABLE_NAME"))
 
     try:

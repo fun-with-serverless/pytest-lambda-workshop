@@ -3,6 +3,7 @@ import boto3
 import os
 import random
 import string
+from .consts import REGION
 
 
 def handler(event, context):
@@ -27,7 +28,7 @@ def handler(event, context):
         }
 
     try:
-        dynamodb = boto3.resource("dynamodb")
+        dynamodb = boto3.resource("dynamodb", region_name=REGION)
         table = dynamodb.Table(os.getenv("TABLE_NAME"))
         table.put_item(
             Item={

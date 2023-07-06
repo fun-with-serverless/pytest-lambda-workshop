@@ -4,7 +4,7 @@
 ## Why Use Moto?
 While developing applications that interact with AWS services, it's often impractical to continuously hit live services for several reasons:
 
-1. **Cost**: AWS services cost money every time they are used.
+1. **Cost**: Some AWS services can incur costs, even when used minimally during testing phases.
 2. **Speed**: Unit tests should be fast, but network calls are slow.
 3. **Isolation**: Tests should not depend on the state of external services.
 4. **Deterministic**: Tests should produce the same results given the same input.

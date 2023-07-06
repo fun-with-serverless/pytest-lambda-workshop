@@ -1,3 +1,5 @@
+![Crisis at the Concert A painting by Picasso](./images/logo-crisis-at-the-opera.png)
+
 Welcome to the "Crisis at the Concert" workshop! This event is designed to provide hands-on experience with unit testing, mocking AWS services, and local testing of AWS Serverless Application Model (SAM) applications.
 
 The workshop is based on a fun and engaging scenario, "Crisis at the Concert", where you will play the role of an engineer tasked with fixing a malfunctioning concert event management system just before the big event.
@@ -22,7 +24,7 @@ By the end of this workshop, you should have a solid understanding of how to wri
 
 Let's dive in and save the concert!
 
-**[The workshop is available online](http://pytest-lambda-workshop.s3-website-us-west-2.amazonaws.com/)**
+👉 **[The workshop is available online](http://pytest-lambda-workshop.s3-website-us-west-2.amazonaws.com/)** 👈
 
 # How to run locally
 1. Make sure you have `poetry` installed.

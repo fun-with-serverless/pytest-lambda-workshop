@@ -4,9 +4,9 @@ Description: Crisis at the Concert Ticket Booking System
 
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 10
     MemorySize: 128
-    Runtime: python3.10
+    Runtime: python3.9
     CodeUri: src/
 
 Resources:
