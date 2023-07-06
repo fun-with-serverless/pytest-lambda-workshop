@@ -1,7 +1,7 @@
 import json
 import boto3
 import os
-from consts import REGION
+from .consts import REGION
 
 
 def handler(event, context):

@@ -3,12 +3,12 @@ import boto3
 import os
 import random
 import string
-from consts import REGION
+from .consts import REGION
 
 
 def handler(event, context):
     body = json.loads(event["body"])
-    if "name" not in body or "ticket_count" not in body:
+    if "ticket_count" not in body:
         return {
             "statusCode": 400,
             "body": json.dumps(
@@ -19,7 +19,7 @@ def handler(event, context):
     name = body["name"]
     ticket_count = body["ticket_count"]
 
-    if type(ticket_count) is not int:
+    if type(ticket_count) is not str:
         return {
             "statusCode": 400,
             "body": json.dumps(

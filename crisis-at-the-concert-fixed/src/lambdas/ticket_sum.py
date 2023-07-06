@@ -1,6 +1,6 @@
 import json
 
-from consts import REGION
+from .consts import REGION
 import boto3
 import os
 
