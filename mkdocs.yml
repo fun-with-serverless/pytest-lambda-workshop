@@ -1,4 +1,4 @@
-site_name: Testing your Lambdas using Moto and AWS SAM Local
+site_name: Local Lambda Testing Workshop
 repo_url: https://github.com/aws-hebrew-book/pytest-lambda-workshop
 site_url: http://pytest-lambda-workshop.s3-website-us-west-2.amazonaws.com/
 theme:
