@@ -51,7 +51,7 @@ CloudFormation outputs from deployed stack
 Outputs
 -----------------------------------------------------
 Key                 BookTicketFunctionApi
-Description         A curl example for booking a ticket
+Description         Here's an example of how to book a ticket using curl
 Value               curl -X POST https://xxxx.execute-api.us-east-1.amazonaws.com/Prod/book_ticket/ -H "Content-Type: application/json" -d '{"name": "Noa Kiril","ticket_count": "50"}' 
 -----------------------------------------------------
 ```

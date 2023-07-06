@@ -3,7 +3,7 @@ import boto3
 import os
 import random
 import string
-from .consts import REGION
+from consts import REGION
 
 
 def handler(event, context):
