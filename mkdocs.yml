@@ -6,6 +6,7 @@ theme:
   features:
     - content.code.copy
     - header.autohide
+    - navigation.footer
   icon:
     logo: material/test-tube
     favicon: images/test-tube.svg
@@ -43,6 +44,12 @@ markdown_extensions:
 
 plugins:
   - social
+extra:
+  social:
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/TServerless
+    - icon: fontawesome/brands/linkedin 
+      link: https://www.linkedin.com/in/efime/
 
 nav:
   - Introduction: 'index.md'

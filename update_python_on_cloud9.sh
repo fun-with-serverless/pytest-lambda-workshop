@@ -21,4 +21,4 @@ source ~/.bash_profile
 pyenv install 3.9
 
 # Set Python 3.9 as global default
-pyenv global 3.9
+echo "Run 'source ~/.bash_profile && pyenv global 3.9' to complete the setup"

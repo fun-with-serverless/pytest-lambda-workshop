@@ -13,13 +13,13 @@ Your goal is to "save the concert" by identifying and fixing these issues using 
 ## Workshop Curriculum
 The workshop is divided into three main parts:
 
-1. Unit Testing for AWS Lambda (1 hour):
+1. **Unit Testing for AWS Lambda**:
 In this section, you will learn about unit testing, its importance, and how to apply it to AWS Lambda functions. You will write your own unit tests to identify issues in the concert application.
 
-2. Mocking AWS Services with Moto (1 hour):
+2. **Mocking AWS Services with Moto**:
 Here, you'll learn about the Python library Moto and how it can be used to mock AWS services for testing purposes.
 
-3. Local Testing with AWS SAM (30 minutes):
+3. **Local Testing with AWS SAM**:
 In the final part of the workshop, you'll learn about AWS SAM and how it can be used for local testing of AWS services like API Gateway, Lambda, and DynamoDB. You will run the concert application locally, interact with the locally running application, inspect logs, and debug issues.
 
 By the end of this workshop, you should have a solid understanding of how to write unit tests for AWS Lambda functions, mock AWS services using Moto, and conduct local testing with AWS SAM. You'll also have the experience of applying these techniques to a practical scenario, giving you confidence to apply them in your own projects.
@@ -37,6 +37,6 @@ Before you start, make sure you have the following:
 
 !!! note
 
-    We highly recommend using [Cloud9](https://aws.amazon.com/cloud9/) as your temporary development environment. It already comes equipped with the necessary prerequisites; however, you will need to update your Python version to 3.9. After cloning the GitHub repository, run `./update_python_on_cloud9.sh` to install Python 3.9.
+    We highly recommend using [Cloud9](https://aws.amazon.com/cloud9/) as your temporary development environment. It already comes equipped with the necessary prerequisites; however, you will need to update your Python version to 3.9. After cloning the GitHub repository, run `./update_python_on_cloud9.sh` on your `Linux2` machine to install Python 3.9.
 
 We're excited for you to join us in this hands-on workshop. Let's get started!
