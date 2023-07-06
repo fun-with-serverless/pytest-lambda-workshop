@@ -8,7 +8,7 @@ from consts import REGION
 
 def handler(event, context):
     body = json.loads(event["body"])
-    if "namer" not in body or "ticket_count" not in body:
+    if "ticket_count" not in body:
         return {
             "statusCode": 400,
             "body": json.dumps(

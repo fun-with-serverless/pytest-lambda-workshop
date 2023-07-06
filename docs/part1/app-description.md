@@ -52,15 +52,15 @@ The Resources section of the template describes three resources:
 
 2. **SumTicketsFunction**: This is a Lambda function that summarizes the number of booked tickets.
 
-3. **TicketsTable**: This is a DynamoDB table where ticket booking records will be stored. The table is created with default properties defined by AWS::Serverless::SimpleTable.
+3. **TicketsTable**: This is a DynamoDB table where ticket booking records will be stored. The table is created with default properties defined by `AWS::Serverless::SimpleTable`.
 
 ## Book Function Code
-The Lambda function, ticket_booking.handler, is written in Python. It receives an event object from API Gateway, which contains details of the HTTP request.
+The Lambda function, `ticket_booking.handler`, is written in Python. It receives an event object from API Gateway, which contains details of the HTTP request.
 
-The function begins by parsing the body of the HTTP request, expecting to find 'name' and 'ticket_count' fields. If these fields are not present, it returns a 400 status code indicating a bad request.
+The function begins by parsing the body of the HTTP request, expecting to find 'ticket_count' field. If these fields are not present, it returns a 400 status code indicating a bad request.
 ```py linenums="1"
     body = json.loads(event['body'])
-    if 'namer' not in body or 'ticket_count' not in body:
+    if 'ticket_count' not in body:
         return {
             'statusCode': 400,
             'body': json.dumps({'message': 'Invalid request, name and ticket_count are required.'})
@@ -98,7 +98,7 @@ If the request is valid, the function attempts to store the booking information 
             'body': json.dumps({'message': 'Internal server error.'})
         }
 ```
-If the operation is successful, the function returns a 200 status code anda message indicating that the booking was successful.
+If the operation is successful, the function returns a 200 status code and a message indicating that the booking was successful.
 ```py linenums="1"
     return {
         'statusCode': 200,
