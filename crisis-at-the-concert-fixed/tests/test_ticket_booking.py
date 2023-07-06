@@ -1,13 +1,13 @@
 # test_lambda_function.py
 
 import json
-from src.ticket_booking import handler as ticket_booking_handler
-from src.ticket_sum import handler as ticket_sum_handler
+from src.lambdas.ticket_booking import handler as ticket_booking_handler
+from src.lambdas.ticket_sum import handler as ticket_sum_handler
 import moto
 import boto3
 import os
 import pytest
-from src.consts import REGION
+from src.lambdas.consts import REGION
 
 
 

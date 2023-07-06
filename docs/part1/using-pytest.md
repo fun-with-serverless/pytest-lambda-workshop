@@ -27,7 +27,7 @@ A pytest test case is a function that begins with `test_`, and resides in a Pyth
 
 ```python linenums="1"
 import json
-from src.ticket_booking import handler
+from src.lambdas.ticket_booking import handler
 
 def test_handler_missing_name_return_400():
     event = {

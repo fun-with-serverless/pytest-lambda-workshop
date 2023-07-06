@@ -2,14 +2,17 @@
 In this guide, we'll be writing unit tests for an AWS Lambda function using `moto` and `pytest`. The function scans a DynamoDB table and calculates the sum of all 'ticket_count' values.
 
 ## Test 1: Creating Fake Data and Checking the Sum
-Here is an example of a test that creates fake data in the table and checks if the sum calculated by the function is correct:
+Here is an example of a test that creates fake data in the table and checks if the sum calculated by the function is correct.
+
+1. Under `tests` create a new file named `test_ticket_sum.py`.
+2. Paste the following code into it.
 
 ```py linenums="1"
 import boto3
 import os
 import moto
 import json
-from src.ticket_sum import handler
+from src.lambdas.ticket_sum import handler
 
 def test_sum_tickets_with_data():
     with moto.mock_dynamodb():

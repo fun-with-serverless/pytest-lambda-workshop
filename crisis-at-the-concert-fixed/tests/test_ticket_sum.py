@@ -3,8 +3,8 @@ import os
 import moto
 import json
 import pytest
-from src.ticket_sum import handler
-from src.consts import REGION
+from src.lambdas.ticket_sum import handler
+from src.lambdas.consts import REGION
 
 
 @pytest.fixture
