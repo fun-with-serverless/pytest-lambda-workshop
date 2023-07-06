@@ -2,9 +2,10 @@
 `pytest` is a popular framework for writing and running Python unit tests. It provides an easy way to collect tests, and has a rich plugin architecture for extending its functionality.
 
 ## Installation
-To install `pytest`, use pip:
+To install `pytest` and `boto3`, use pip:
 ```bash
 pip install pytest
+pip install boto3
 ```
 
 ## Folder Structure
@@ -19,12 +20,14 @@ A typical Python project structure with `pytest` might look like this:
 In this structure, the src directory contains your source code (`lambda_function.py`), and the tests directory contains your test code (`test_lambda_function.py`).
 
 ## Writing Tests
-A pytest test case is a function that begins with `test_`, and resides in a Python file beginning with `test_`. Here is an example of a test for the BookTicketFunction lambda:
+A pytest test case is a function that begins with `test_`, and resides in a Python file beginning with `test_`. 
+
+1. A `test` folder and a t`est_ticket_booking.py` file exist as part of the crisis-at-the-concert-err source.
+2. Here is an example of a test for the BookTicketFunction lambda, paste it into `test_ticket_booking.py`:
+
 ```python linenums="1"
 import json
-from src.ticket_booking import handler
-import json
-from src.ticket_booking import handler
+from src.lambdas.ticket_booking import handler
 
 def test_handler_missing_name_return_400():
     event = {

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "testing-lambdas-workshop"
-version = "0.1.0"
+version = "0.1.1"
 description = "Testing your Lambdas using Unit Testing and AWS SAM Local"
 authors = ["Efi MK <efi.merdler@gmail.com>"]
 license = "Apache"

@@ -3,12 +3,14 @@ import os
 import moto
 import json
 import pytest
-from src.ticket_sum import handler
+from src.lambdas.ticket_sum import handler
+from src.lambdas.consts import REGION
+
 
 @pytest.fixture
 def setup_dynamodb():
     with moto.mock_dynamodb():
-        dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+        dynamodb = boto3.resource('dynamodb', region_name=REGION)
         table_name = 'test-table'
         os.environ['TABLE_NAME'] = table_name
         table = dynamodb.create_table(

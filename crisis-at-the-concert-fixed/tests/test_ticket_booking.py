@@ -1,18 +1,20 @@
 # test_lambda_function.py
 
 import json
-from src.ticket_booking import handler as ticket_booking_handler
-from src.ticket_sum import handler as ticket_sum_handler
+from src.lambdas.ticket_booking import handler as ticket_booking_handler
+from src.lambdas.ticket_sum import handler as ticket_sum_handler
 import moto
 import boto3
 import os
 import pytest
+from src.lambdas.consts import REGION
+
 
 
 @pytest.fixture
 def setup_dynamodb():
     with moto.mock_dynamodb():
-        dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
+        dynamodb = boto3.resource("dynamodb", region_name=REGION)
         table_name = "test-table"
         os.environ["TABLE_NAME"] = table_name
         table = dynamodb.create_table(
