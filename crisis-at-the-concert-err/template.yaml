@@ -13,7 +13,7 @@ Resources:
   BookTicketFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      Handler: ticket_booking.handler
+      Handler: lambdas.ticket_booking.handler
       Environment:
         Variables:
           TABLE_NAME: !Ref TicketsTable
@@ -27,7 +27,7 @@ Resources:
   SumTicketsFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      Handler: ticket_sum.handler
+      Handler: lambdas.ticket_sum.handler
       Environment:
         Variables:
           TABLE_NAME: !Ref TicketsTable

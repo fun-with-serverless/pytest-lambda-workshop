@@ -15,7 +15,7 @@ Resources:
   BookTicketFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      Handler: ticket_booking.handler
+      Handler: lambdas.ticket_booking.handler
       Runtime: python3.10
       Environment:
         Variables:
@@ -30,7 +30,7 @@ Resources:
   SumTicketsFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      Handler: sum_tickets.handler
+      Handler: lambdas.sum_tickets.handler
       Runtime: python3.10
       Environment:
         Variables:

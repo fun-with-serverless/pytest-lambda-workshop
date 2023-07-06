@@ -13,7 +13,7 @@ Resources:
   BookTicketFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      Handler: ticket_booking.handler
+      Handler: lambdas.ticket_booking.handler
       Policies:
       - DynamoDBWritePolicy:
           TableName: !Ref TicketsTable
@@ -30,7 +30,7 @@ Resources:
   SumTicketsFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      Handler: ticket_sum.handler
+      Handler: lambdas.ticket_sum.handler
       Policies:
       - DynamoDBReadPolicy:
           TableName: !Ref TicketsTable
