@@ -1,4 +1,7 @@
-![Crisis at the Concert A painting by Picasso](./images/logo-crisis-at-the-opera.png)
+# Crisis at the Concert
+<p align="center">
+   <img src="./docs/images/logo-crisis-at-the-opera.png" alt="[Crisis at the Concert A painting by Picasso]"/>
+</p>
 
 Welcome to the "Crisis at the Concert" workshop! This event is designed to provide hands-on experience with unit testing, mocking AWS services, and local testing of AWS Serverless Application Model (SAM) applications.
 
