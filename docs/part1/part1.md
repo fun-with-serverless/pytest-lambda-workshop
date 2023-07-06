@@ -34,14 +34,14 @@ Now, let's build our SAM application:
 sam build
 ```
 
+!!! note
+
+    If you are using a shared AWS environment, it is recommended that you change the default stack name to avoid conflicts with others participating in the same workshop. Simply use `sam deploy --stack-name crisis-at-the-concert-${USER}`.
+
 Once the build is successful, deploy the application:
 ```
 sam deploy
 ```
-
-!!! note
-
-    If you are using a shared AWS environment, it is recommended that you change the default stack name to avoid conflicts with others participating in the same workshop. Simply use `sam build --stack-name crisis-at-the-concert-${USER}`.
 
 After a few minutes, your application should be deployed, and you'll see output similar to this:
 
