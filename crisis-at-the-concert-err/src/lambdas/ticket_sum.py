@@ -5,8 +5,8 @@ from .consts import REGION
 
 
 def handler(event, context):
-    dynamodb = boto3.resource("dynamodb")
-    table = dynamodb.Table(os.getenv("TABLE_NAME"), region_name=REGION)
+    dynamodb = boto3.resource("dynamodb", region_name=REGION)
+    table = dynamodb.Table(os.getenv("TABLE_NAME"))
 
     try:
         response = table.scan(

@@ -20,6 +20,8 @@ Environment variables can be defined in a JSON file and passed to the `sam local
   }
 }
 ```
+You can find the table name in the output when AWS SAM `deploy` is running.
+
 !!! note
     Please note that each function has a separate record in the JSON.
 
