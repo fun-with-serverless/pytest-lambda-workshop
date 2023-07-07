@@ -44,6 +44,8 @@ jobs:
       run: |
         aws s3 sync --delete ./site s3://pytest-lambda-workshop/
         aws cloudfront create-invalidation --distribution-id $CF_DISTRIBUTION_ID --paths "/*"
+      env:
+        CF_DISTRIBUTION_ID: ${{ vars.CF_DISTRIBUTION_ID }}
 
         
 
