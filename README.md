@@ -27,7 +27,7 @@ By the end of this workshop, you should have a solid understanding of how to wri
 
 Let's dive in and save the concert!
 
-👉 **[The workshop is available online](http://pytest-lambda-workshop.s3-website-us-west-2.amazonaws.com/)** 👈
+👉 **[The workshop is available online](https://pytest-lambda-workshop.designfor.cloud/)** 👈
 
 # 🖥️ How to run locally
 1. Make sure you have `poetry` installed.
